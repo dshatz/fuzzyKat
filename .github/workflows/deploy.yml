@@ -38,5 +38,4 @@ jobs:
         env:
           PUBLISH_VERSION: ${{ steps.get_version.outputs.version }}
         run: |
-          gradle library:check --refresh-dependencies
           gradle library:publishAllPublicationsToMavenCentralRepository
