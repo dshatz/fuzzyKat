@@ -17,6 +17,14 @@ kotlin {
     iosArm64()
     iosSimulatorArm64()
     linuxX64()
+    linuxArm64()
+    mingwX64()
+    macosArm64()
+    macosX64()
+    androidNativeX64()
+    androidNativeX86()
+    androidNativeArm32()
+    androidNativeArm64()
     js(IR) {
         moduleName = "fuzzyKat.js"
         browser()
@@ -72,7 +80,8 @@ mavenPublishing {
     publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
     signAllPublications()
 
-    coordinates("com.dshatz.fuzzyKat", "fuzzyKat", "1.0.0")
+    val version = System.getenv("PUBLISH_VERSION")
+    coordinates("com.dshatz.fuzzyKat", "fuzzyKat", version)
 
     pom {
         name.set(project.name)
